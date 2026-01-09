@@ -47,7 +47,7 @@ npm run dev
 2. **Build Settings**:
    - Build command: `npm run build`
    - Publish directory: `dist`
-   - Node version: `18`
+   - Node version: `20`
 
 3. **Environment Variables** (if needed):
    - Add any required environment variables in Netlify dashboard
@@ -89,14 +89,14 @@ bitlyt/
 
 ### Vite Configuration
 - **Code Splitting**: Vendor and icons chunks
-- **Minification**: Terser with console removal
+- **Minification**: ESBuild for faster builds
 - **Build Optimization**: Chunk size warnings and asset optimization
 
 ### Netlify Configuration
 - **SPA Routing**: All routes redirect to index.html
 - **Security Headers**: XSS protection, content type options
 - **Caching**: Long-term caching for assets
-- **Build Environment**: Node.js 18
+- **Build Environment**: Node.js 20
 
 ## 🎯 Performance Features
 
