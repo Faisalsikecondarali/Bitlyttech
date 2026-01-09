@@ -1,0 +1,67 @@
+@import url('../HelpCenterPage/HelpCenterPage.css');
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.doc-card {
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .doc-card {
+  background: #334155;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.doc-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .doc-title {
+  color: #f1f5f9;
+}
+
+.doc-text {
+  font-size: 15px;
+  line-height: 1.8;
+  color: #475569;
+}
+
+body.dark-mode .doc-text {
+  color: #cbd5e1;
+}
+
+.doc-note {
+  margin-top: 60px;
+  text-align: center;
+  padding: 42px 22px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(2, 132, 199, 0.06) 100%);
+  border: 1px solid rgba(2, 132, 199, 0.14);
+}
+
+.doc-note-title {
+  font-size: 26px;
+  font-weight: 900;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.doc-note-text {
+  color: var(--text-secondary);
+  margin-bottom: 18px;
+}
+
+@media (max-width: 768px) {
+  .doc-card {
+    padding: 20px;
+  }
+}

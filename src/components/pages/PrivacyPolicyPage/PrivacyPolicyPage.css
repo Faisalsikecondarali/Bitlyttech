@@ -1,0 +1,49 @@
+@import url('../HelpCenterPage/HelpCenterPage.css');
+
+.policy-card {
+  background: white;
+  border-radius: 18px;
+  padding: 34px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+body.dark-mode .policy-card {
+  background: #334155;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.policy-section + .policy-section {
+  margin-top: 22px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(2, 132, 199, 0.12);
+}
+
+body.dark-mode .policy-section + .policy-section {
+  border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.policy-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 10px;
+}
+
+body.dark-mode .policy-title {
+  color: #f1f5f9;
+}
+
+.policy-text {
+  color: #475569;
+  line-height: 1.85;
+}
+
+body.dark-mode .policy-text {
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .policy-card {
+    padding: 22px;
+  }
+}
