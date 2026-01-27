@@ -1,0 +1,62 @@
+@import url('../HelpCenterPage/HelpCenterPage.css');
+
+.press-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.press-card {
+  background: white;
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(2, 132, 199, 0.12);
+}
+
+body.dark-mode .press-card {
+  background: #334155;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.press-meta {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #0284c7;
+  background: rgba(0, 212, 255, 0.10);
+  border: 1px solid rgba(2, 132, 199, 0.20);
+  margin-bottom: 12px;
+}
+
+.press-title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #0f172a;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+body.dark-mode .press-title {
+  color: #f1f5f9;
+}
+
+.press-text {
+  font-size: 15px;
+  line-height: 1.85;
+  color: #475569;
+}
+
+body.dark-mode .press-text {
+  color: #cbd5e1;
+}
+
+@media (max-width: 768px) {
+  .press-card {
+    padding: 20px;
+  }
+}
