@@ -9,6 +9,7 @@ export default defineConfig({
     assetsDir: 'assets',
     sourcemap: false,
     minify: 'esbuild',
+    target: 'es2018',  // ← add ye line, optional chaining fix ke liye
     rollupOptions: {
       output: {
         manualChunks: {
