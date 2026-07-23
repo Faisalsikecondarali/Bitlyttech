@@ -19,6 +19,9 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
+    // Performance optimizations
+    cssCodeSplit: true,
+    reportCompressedSize: false,
   },
   server: {
     port: 3000,
@@ -27,5 +30,9 @@ export default defineConfig({
   preview: {
     port: 4173,
     host: true,
+  },
+  // Performance: Optimize dependencies
+  optimizeDeps: {
+    include: ['react', 'react-dom'],
   },
 })

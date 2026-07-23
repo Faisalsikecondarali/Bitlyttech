@@ -287,6 +287,96 @@ export const blogPosts = [
       'Next we optimize speed and technical SEO: Core Web Vitals, image optimization, internal linking, sitemap/robots, canonical URLs, and structured data. When these basics are done correctly, your website becomes a strong platform for long-term organic growth.',
       'Finally, we focus on conversion: trust elements, portfolio, testimonials, and fast contact options (including WhatsApp). Ranking is important, but turning visitors into clients is what grows your business. Our goal is simple: more qualified leads from Google and better conversions once they land on your site.'
     ]
+  },
+  {
+    id: 17,
+    slug: 'google-maps-leads-extractor-guide',
+    category: 'Business Tools',
+    title: 'Google Maps Leads Extractor: Grow Your Business with Local Leads',
+    excerpt:
+      'Learn how Google Maps Leads Extractor helps businesses find local customers, extract contact data, and increase sales with targeted lead generation.',
+    date: 'Jul 2026',
+    readTime: '7 min read',
+    content: [
+      'Local businesses need local customers. Google Maps Leads Extractor helps you find and connect with potential customers in your target area.',
+      'This tool extracts business names, phone numbers, addresses, and reviews from Google Maps listings. You can filter by location, category, and rating to find high-quality leads.',
+      'Use these leads for cold calling, WhatsApp marketing, email campaigns, or direct sales outreach. It is especially useful for B2B services, real estate, marketing agencies, and sales teams.',
+      'For SEO and marketing agencies, this tool is a game-changer. You can find businesses that need your services, reach out directly, and convert them into clients. Target keywords like "web development company in [city]" or "SEO services near me" become actionable when you have real contact data.',
+      'The tool respects data privacy and is designed for legitimate business outreach. Always follow local regulations and best practices when contacting leads. Personalize your messages and offer real value to increase response rates.',
+      'Combine Google Maps Leads Extractor with a strong CRM and follow-up system. The tool gives you the data, but your sales process converts leads into customers. Track your outreach, measure response rates, and continuously improve your approach.'
+    ]
+  },
+  {
+    id: 18,
+    slug: 'school-management-system-features',
+    category: 'Education Software',
+    title: 'School Management System: Complete Features Guide',
+    excerpt:
+      'Discover the essential features of a modern school management system including student records, attendance, fees, exams, and parent communication.',
+    date: 'Jul 2026',
+    readTime: '8 min read',
+    content: [
+      'A school management system simplifies daily operations for educational institutions. From student enrollment to exam results, everything becomes digital and efficient.',
+      'Key features include student information management, attendance tracking, fee collection, grade management, timetable scheduling, and parent-teacher communication portals.',
+      'Modern systems also offer mobile apps for parents, SMS notifications, library management, transport tracking, and detailed analytics for school administration.',
+      'For schools in Pakistan and globally, a good management system reduces paperwork, improves data accuracy, and enhances communication between teachers, students, and parents. It is essential for growing educational institutions.',
+      'When choosing a school management system, look for ease of use, data security, mobile accessibility, and after-sales support. The system should grow with your school and handle increasing student numbers without performance issues.',
+      'Bitlyt Tech Solutions offers a comprehensive school management system at an affordable price. Our system includes all essential modules, WhatsApp integration for quick communication, and dedicated support. Contact us to see a demo and discuss your specific requirements.'
+    ]
+  },
+  {
+    id: 19,
+    slug: 'pharmacy-management-system-guide',
+    category: 'Healthcare Software',
+    title: 'Pharmacy Management System: Streamline Your Pharmacy Operations',
+    excerpt:
+      'Learn how a pharmacy management system helps with inventory, prescriptions, billing, and customer management for modern pharmacies.',
+    date: 'Jul 2026',
+    readTime: '7 min read',
+    content: [
+      'Running a pharmacy involves managing inventory, prescriptions, billing, and customer data. A pharmacy management system automates these tasks and reduces errors.',
+      'Essential features include medicine inventory tracking with expiry alerts, prescription management, billing and invoicing, supplier management, and customer purchase history.',
+      'Advanced systems offer barcode scanning, drug interaction warnings, multi-branch support, and integration with accounting software. This helps pharmacies scale and maintain compliance.',
+      'For pharmacies in Pakistan, a management system is crucial for tracking stock, preventing expired medicine sales, and maintaining accurate financial records. It improves efficiency and customer service.',
+      'When selecting a pharmacy management system, consider ease of use, reporting capabilities, barcode support, and integration with your existing processes. The system should help you make better purchasing decisions and reduce waste.',
+      'Bitlyt Tech Solutions provides a complete pharmacy management system starting at $50. Our system includes inventory management, prescription handling, billing, and WhatsApp integration for customer communication. Get in touch for a personalized demo.'
+    ]
+  },
+  {
+    id: 20,
+    slug: 'inventory-management-system-benefits',
+    category: 'Business Software',
+    title: 'Inventory Management System: Essential for Growing Businesses',
+    excerpt:
+      'Understand how an inventory management system helps track stock, reduce costs, prevent stockouts, and improve supply chain efficiency.',
+    date: 'Jul 2026',
+    readTime: '6 min read',
+    content: [
+      'Inventory management is critical for retail, wholesale, and manufacturing businesses. Poor inventory control leads to stockouts, overstocking, and lost revenue.',
+      'A good inventory management system provides real-time stock tracking, low stock alerts, purchase order management, supplier tracking, and sales analytics.',
+      'Modern systems support multiple warehouses, barcode scanning, serial number tracking, and integration with accounting and e-commerce platforms. This gives businesses complete visibility into their supply chain.',
+      'For businesses in Pakistan, inventory management helps reduce losses from expired or damaged goods, optimize purchasing decisions, and improve cash flow. It is essential for retail stores, distributors, and manufacturers.',
+      'Key benefits include reduced carrying costs, improved order fulfillment, better supplier relationships, and data-driven purchasing decisions. The system pays for itself through reduced waste and increased sales.',
+      'Bitlyt Tech Solutions offers an affordable inventory management system at $40. Our solution includes multi-location support, barcode integration, low stock alerts, and detailed reporting. Contact us to learn how we can help streamline your inventory operations.'
+    ]
+  },
+  {
+    id: 21,
+    slug: 'hospital-management-system-complete-guide',
+    category: 'Healthcare Software',
+    title: 'Hospital Management System: Transform Healthcare Operations',
+    excerpt:
+      'Explore the comprehensive features of hospital management systems including patient records, appointments, billing, pharmacy, and laboratory management.',
+    date: 'Jul 2026',
+    readTime: '8 min read',
+    content: [
+      'Hospitals and clinics manage complex operations including patient care, appointments, billing, pharmacy, and laboratory services. A hospital management system integrates all these functions into one platform.',
+      'Core features include patient registration and records, appointment scheduling, inpatient and outpatient management, billing and insurance, pharmacy integration, and laboratory test management.',
+      'Advanced systems offer electronic medical records (EMR), telemedicine integration, blood bank management, operation theater scheduling, and mobile apps for doctors and patients.',
+      'For healthcare facilities in Pakistan, a hospital management system improves patient care, reduces waiting times, eliminates paperwork, and ensures data security. It is essential for modern healthcare delivery.',
+      'When choosing a hospital management system, look for HIPAA compliance, ease of use for medical staff, integration with medical devices, and reliable support. The system should handle peak loads and maintain 24/7 availability.',
+      'Bitlyt Tech Solutions provides a comprehensive hospital management system starting at $40. Our system includes patient management, appointment scheduling, billing, pharmacy integration, laboratory management, and WhatsApp communication. Schedule a demo to see how we can transform your healthcare operations.'
+    ]
   }
 ]
 

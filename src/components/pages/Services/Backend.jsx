@@ -1,9 +1,110 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaAws, FaCloud, FaDocker, FaJava, FaNodeJs, FaPython, FaServer } from 'react-icons/fa';
 import { SiGraphql, SiKubernetes, SiMongodb, SiMysql, SiPostgresql, SiRedis } from 'react-icons/si';
 import './Backend.css';
 
 const Backend = ({ setCurrentPage, currentPage }) => {
+  useEffect(() => {
+    // Update meta tags for Backend Development service page
+    document.title = 'Backend Development Services | API & Database Development | Bitlyt Tech Solutions';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Professional backend development services including API development, database design, cloud integration, and microservices architecture. Expert team using Node.js, Python, Java, MongoDB, PostgreSQL, AWS, and Docker. Get a free consultation today.');
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.name = 'keywords';
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'backend development, API development, REST API, GraphQL API, database design, MongoDB, PostgreSQL, MySQL, Redis, Node.js development, Python development, Java development, microservices architecture, cloud integration, AWS development, Azure development, Docker, Kubernetes, server-side development, full-stack development, database optimization, API security');
+
+    // Add Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', 'Backend Development Services | API & Database Development');
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', 'Professional backend development services including API development, database design, cloud integration, and microservices architecture.');
+
+    // Add Service Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Backend Development Services",
+      "description": "Professional backend development services including API development, database design, cloud integration, and microservices architecture.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bitlyt Tech Solutions",
+        "url": "https://www.bitlyttech.org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Backend Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "API Development",
+              "description": "RESTful and GraphQL APIs for seamless data integration and communication."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Database Design",
+              "description": "Scalable database architecture using MongoDB, PostgreSQL, MySQL, and Redis."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Integration",
+              "description": "AWS, Azure, and Google Cloud deployment solutions with Docker and Kubernetes."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Microservices Architecture",
+              "description": "Scalable microservices architecture for modern distributed applications."
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   const features = [
     {
       icon: (

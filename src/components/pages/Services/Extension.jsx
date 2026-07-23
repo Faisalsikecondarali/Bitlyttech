@@ -1,9 +1,110 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaChrome, FaEdge, FaFirefox, FaSafari } from 'react-icons/fa';
 import { SiNodedotjs, SiReact, SiTypescript, SiVuedotjs, SiJavascript } from 'react-icons/si';
 import './Extension.css';
 
 const Extension = () => {
+  useEffect(() => {
+    // Update meta tags for Browser Extensions service page
+    document.title = 'Browser Extension Development | Chrome & Firefox Extensions | Bitlyt Tech Solutions';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Professional browser extension development services for Chrome, Firefox, Safari, and Edge. Expert team using JavaScript, TypeScript, React, and Vue.js for custom extensions and plugins. Get a free consultation today.');
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.name = 'keywords';
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'browser extension development, Chrome extension, Firefox extension, Safari extension, Edge extension, WebExtensions, plugin development, JavaScript extension, TypeScript extension, React extension, Vue.js extension, custom browser extension, extension development company, Chrome Web Store, Firefox Add-ons');
+
+    // Add Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', 'Browser Extension Development | Chrome & Firefox Extensions');
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', 'Professional browser extension development services for Chrome, Firefox, Safari, and Edge using JavaScript, TypeScript, React, and Vue.js.');
+
+    // Add Service Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Browser Extension Development Services",
+      "description": "Professional browser extension development services for Chrome, Firefox, Safari, and Edge using JavaScript, TypeScript, React, and Vue.js.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bitlyt Tech Solutions",
+        "url": "https://www.bitlyttech.org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Browser Extension Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Chrome Extension Development",
+              "description": "Custom Chrome extensions for productivity, automation, and business workflows."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Firefox Extension Development",
+              "description": "Firefox add-ons and extensions using WebExtensions API."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cross-Platform Extensions",
+              "description": "Extensions that work across Chrome, Firefox, Safari, and Edge browsers."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plugin Development",
+              "description": "Custom plugins and integrations for popular platforms and applications."
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   const features = [
     {
       icon: (

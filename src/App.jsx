@@ -23,6 +23,7 @@ import {
   Backend,
   ITConsulting
 } from './components/pages'
+import { GoogleMapsLeads, SchoolManagement, PharmacyManagement, InventoryManagement, HospitalManagement } from './components/pages/Products'
 import './App.css'
 
 function App() {
@@ -74,6 +75,16 @@ function App() {
         return '/press'
       case 'cookie-policy':
         return '/cookie-policy'
+      case 'google-maps-leads':
+        return '/google-maps-leads'
+      case 'school-management':
+        return '/school-management'
+      case 'pharmacy-management':
+        return '/pharmacy-management'
+      case 'inventory-management':
+        return '/inventory-management'
+      case 'hospital-management':
+        return '/hospital-management'
       default:
         return '/'
     }
@@ -125,6 +136,16 @@ function App() {
         return { page: 'press', slug: null }
       case '/cookie-policy':
         return { page: 'cookie-policy', slug: null }
+      case '/google-maps-leads':
+        return { page: 'google-maps-leads', slug: null }
+      case '/school-management':
+        return { page: 'school-management', slug: null }
+      case '/pharmacy-management':
+        return { page: 'pharmacy-management', slug: null }
+      case '/inventory-management':
+        return { page: 'inventory-management', slug: null }
+      case '/hospital-management':
+        return { page: 'hospital-management', slug: null }
       default:
         return { page: 'home', slug: null }
     }
@@ -305,6 +326,41 @@ function App() {
             'Learn how cookies are used on the Bitlyt Tech Solutions website, how analytics may be used, and how you can manage cookie preferences.',
           path: '/cookie-policy'
         }
+      case 'google-maps-leads':
+        return {
+          title: 'Google Maps Leads Extractor - Best Lead Generation Tool | Extract Business Contacts $5',
+          description:
+            'Extract unlimited business leads from Google Maps with our powerful leads extractor tool. Get business names, addresses, phone numbers, emails & website URLs. Best Google Maps scraper for sales teams & marketers. Only $5 limited offer.',
+          path: '/google-maps-leads'
+        }
+      case 'school-management':
+        return {
+          title: 'School Management System - Best School ERP Software | Student Management $40',
+          description:
+            'Complete school management system with student management, attendance tracking, fee management, exam management & parent portal. Best school ERP software for educational institutions. Starting at $40.',
+          path: '/school-management'
+        }
+      case 'pharmacy-management':
+        return {
+          title: 'Pharmacy Management System - Best Pharmacy Software | Medical Store $50',
+          description:
+            'Complete pharmacy management system with inventory management, billing, prescription management, expiry tracking & supplier management. Best pharmacy software for medical stores. Starting at $50.',
+          path: '/pharmacy-management'
+        }
+      case 'inventory-management':
+        return {
+          title: 'Inventory Management System - Best Inventory Software | Stock Management $40',
+          description:
+            'Complete inventory management system with stock tracking, order management, supplier management, barcode scanning & warehouse management. Best inventory software for businesses. Starting at $40.',
+          path: '/inventory-management'
+        }
+      case 'hospital-management':
+        return {
+          title: 'Hospital Management System - Best Hospital Software | Healthcare Management $40',
+          description:
+            'Complete hospital management system with patient management, appointment scheduling, billing, pharmacy integration & laboratory management. Best hospital software for healthcare facilities. Starting at $40.',
+          path: '/hospital-management'
+        }
       case 'home':
       default:
         return base
@@ -321,6 +377,67 @@ function App() {
       document.body.classList.add('dark-mode')
     } else {
       document.body.classList.remove('dark-mode')
+    }
+
+    // Add Organization Schema for SEO
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Bitlyt Tech Solutions",
+      "url": "https://www.bitlyttech.org",
+      "logo": "https://www.bitlyttech.org/logo.png",
+      "description": "Bitlyt Tech Solutions is a leading software house providing web development, mobile app development, UI/UX design, backend development, SEO services, and custom software solutions for businesses worldwide.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "Pakistan"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+92-XXX-XXXXXXX",
+        "contactType": "sales",
+        "email": "info@bitlyttech.org"
+      },
+      "sameAs": [
+        "https://www.facebook.com/bitlyttech",
+        "https://www.twitter.com/bitlyttech",
+        "https://www.linkedin.com/company/bitlyttech"
+      ],
+      "service": [
+        {
+          "@type": "Service",
+          "name": "Web Development",
+          "description": "Custom website development, responsive web design, e-commerce solutions, and web application development"
+        },
+        {
+          "@type": "Service",
+          "name": "Mobile App Development",
+          "description": "iOS and Android app development, cross-platform mobile applications, and mobile app MVP development"
+        },
+        {
+          "@type": "Service",
+          "name": "UI/UX Design",
+          "description": "User interface design, user experience design, mobile app design, and website design"
+        },
+        {
+          "@type": "Service",
+          "name": "Backend Development",
+          "description": "API development, database design, server-side development, and cloud solutions"
+        },
+        {
+          "@type": "Service",
+          "name": "SEO Services",
+          "description": "Search engine optimization, local SEO, technical SEO, and content strategy"
+        }
+      ]
+    }
+
+    const script = document.createElement('script')
+    script.type = 'application/ld+json'
+    script.text = JSON.stringify(organizationSchema)
+    document.head.appendChild(script)
+
+    return () => {
+      document.head.removeChild(script)
     }
   }, [])
 
@@ -434,6 +551,16 @@ function App() {
         return <PressPage setCurrentPage={navigateTo} />
       case 'cookie-policy':
         return <CookiePolicyPage />
+      case 'google-maps-leads':
+        return <GoogleMapsLeads />
+      case 'school-management':
+        return <SchoolManagement />
+      case 'pharmacy-management':
+        return <PharmacyManagement />
+      case 'inventory-management':
+        return <InventoryManagement />
+      case 'hospital-management':
+        return <HospitalManagement />
       case 'home':
       default:
         return (

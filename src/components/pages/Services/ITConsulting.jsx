@@ -1,8 +1,109 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaCloud, FaCogs, FaCube, FaLock, FaMicrochip, FaProjectDiagram, FaRobot } from 'react-icons/fa';
 import './ITConsulting.css';
 
 const ITConsulting = ({ setCurrentPage, currentPage }) => {
+  useEffect(() => {
+    // Update meta tags for IT Consulting service page
+    document.title = 'IT Consulting Services | Digital Transformation & Technology Strategy | Bitlyt Tech Solutions';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Professional IT consulting services including digital transformation, cloud strategy, security consulting, process optimization, and technology advisory. Expert team helping businesses leverage technology for growth. Get a free consultation today.');
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.name = 'keywords';
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'IT consulting, digital transformation, cloud strategy, security consulting, process optimization, technology advisory, IT strategy, business technology consulting, cloud migration, cybersecurity consulting, DevOps consulting, IT infrastructure, technology consulting services, IT solutions, business process optimization');
+
+    // Add Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', 'IT Consulting Services | Digital Transformation & Technology Strategy');
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', 'Professional IT consulting services including digital transformation, cloud strategy, security consulting, and process optimization.');
+
+    // Add Service Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "IT Consulting Services",
+      "description": "Professional IT consulting services including digital transformation, cloud strategy, security consulting, and process optimization.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bitlyt Tech Solutions",
+        "url": "https://www.bitlyttech.org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "IT Consulting Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Digital Transformation",
+              "description": "Guiding businesses through modern technology adoption and digital evolution."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Security Consulting",
+              "description": "Comprehensive security assessments and implementation strategies."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cloud Strategy",
+              "description": "Cloud migration planning and optimization for maximum efficiency."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Process Optimization",
+              "description": "Streamlining business processes through technology solutions."
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   const features = [
     {
       icon: (

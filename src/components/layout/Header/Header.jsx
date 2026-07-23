@@ -71,10 +71,66 @@ const services = [
   },
 ];
 
+// Products data
+const products = [
+  {
+    id: 'google-maps-leads',
+    title: 'Google Maps Leads Extractor',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    description: 'Extract leads from Google Maps',
+  },
+  {
+    id: 'school-management',
+    title: 'School Management System',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+    description: 'Complete school administration',
+  },
+  {
+    id: 'pharmacy-management',
+    title: 'Pharmacy Management System',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    description: 'Pharmacy inventory & sales',
+  },
+  {
+    id: 'inventory-management',
+    title: 'Inventory Management System',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 7h-9M20 11H9M20 15H9M3 7h.01M3 11h.01M3 15h.01" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    description: 'Stock and inventory tracking',
+  },
+  {
+    id: 'hospital-management',
+    title: 'Hospital Management System',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 6v12m-6-6h12" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+      </svg>
+    ),
+    description: 'Healthcare administration',
+  },
+];
+
 const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isProductsOpen, setIsProductsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [isMobileProductsOpen, setIsMobileProductsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   // Close dropdown when clicking outside
@@ -83,18 +139,19 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         // Close only if clicking outside the dropdown
         setIsServicesOpen(false);
+        setIsProductsOpen(false);
       }
     };
 
     // Add event listener when dropdown is open
-    if (isServicesOpen) {
+    if (isServicesOpen || isProductsOpen) {
       document.addEventListener('mousedown', handleClickOutside);
     }
     
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [isServicesOpen]);  // Only re-run when isServicesOpen changes
+  }, [isServicesOpen, isProductsOpen]);  // Only re-run when dropdowns change
 
   const handleNavClick = (page, e) => {
     // Prevent default to avoid page reload
@@ -108,10 +165,12 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
     // Close dropdown only if clicking outside the dropdown menu
     if (!e || !e.target.closest('.dropdown-menu')) {
       setIsServicesOpen(false);
+      setIsProductsOpen(false);
     }
 
     setIsMobileMenuOpen(false);
     setIsMobileServicesOpen(false);
+    setIsMobileProductsOpen(false);
   };
 
   const toggleMobileMenu = () => {
@@ -119,6 +178,7 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
       const next = !prev;
       if (!next) {
         setIsMobileServicesOpen(false);
+        setIsMobileProductsOpen(false);
       }
       return next;
     });
@@ -129,6 +189,13 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
       e.preventDefault();
     }
     setIsMobileServicesOpen((prev) => !prev);
+  };
+
+  const toggleMobileProducts = (e) => {
+    if (e) {
+      e.preventDefault();
+    }
+    setIsMobileProductsOpen((prev) => !prev);
   };
 
   return (
@@ -207,6 +274,63 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
             <li className="nav-item">
               <a href="/contact" className={`nav-link ${currentPage === 'contact' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a>
             </li>
+            <li 
+              className="nav-item products-dropdown"
+              onMouseEnter={() => setIsProductsOpen(true)}
+              onMouseLeave={() => setIsProductsOpen(false)}
+            >
+              <button 
+                className={`nav-link ${products.some(p => p.id === currentPage) ? 'active' : ''}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsProductsOpen(!isProductsOpen);
+                }}
+                aria-expanded={isProductsOpen}
+                aria-haspopup="true"
+              >
+                Products
+                <svg 
+                  className={`dropdown-arrow ${isProductsOpen ? 'open' : ''}`} 
+                  width="10" 
+                  height="6" 
+                  viewBox="0 0 10 6" 
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path 
+                    d="M1 1L5 5L9 1" 
+                    stroke="currentColor" 
+                    strokeWidth="1.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div 
+                className={`dropdown-menu ${isProductsOpen ? 'open' : ''}`}
+                role="menu"
+                aria-label="Products menu"
+                onMouseEnter={() => setIsProductsOpen(true)}
+                onMouseLeave={() => setIsProductsOpen(false)}
+              >
+                {products.map((product) => (
+                  <a 
+                    key={product.id}
+                    href={`/${product.id}`}
+                    className="dropdown-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(product.id, e);
+                    }}
+                  >
+                    <div className="service-icon">
+                      {product.icon}
+                    </div>
+                    {product.title}
+                  </a>
+                ))}
+              </div>
+            </li>
           </ul>
         </nav>
 
@@ -265,6 +389,48 @@ const Header = ({ setCurrentPage, currentPage, darkMode, toggleDarkMode }) => {
             </li>
             <li className="mobile-nav-item">
               <a href="/contact" className={`mobile-nav-link ${currentPage === 'contact' ? 'active' : ''}`} onClick={(e) => { e.preventDefault(); handleNavClick('contact'); }}>Contact</a>
+            </li>
+            <li className="mobile-nav-item">
+              <button
+                className={`mobile-nav-link mobile-products-toggle ${products.some(p => p.id === currentPage) ? 'active' : ''}`}
+                onClick={toggleMobileProducts}
+                aria-expanded={isMobileProductsOpen}
+                aria-haspopup="true"
+                type="button"
+              >
+                Products
+                <svg
+                  className={`dropdown-arrow ${isMobileProductsOpen ? 'open' : ''}`}
+                  width="10"
+                  height="6"
+                  viewBox="0 0 10 6"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M1 1L5 5L9 1"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </button>
+              <div className={`mobile-services-menu ${isMobileProductsOpen ? 'open' : ''}`}>
+                {products.map((product) => (
+                  <a
+                    key={product.id}
+                    href={`/${product.id}`}
+                    className="mobile-services-item"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      handleNavClick(product.id, e);
+                    }}
+                  >
+                    {product.title}
+                  </a>
+                ))}
+              </div>
             </li>
           </ul>
         </div>

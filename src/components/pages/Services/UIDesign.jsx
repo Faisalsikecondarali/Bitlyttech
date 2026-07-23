@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SiAdobe,
   SiCanva,
@@ -11,6 +11,107 @@ import {
 import './UIDesign.css';
 
 const UIDesign = ({ setCurrentPage, currentPage }) => {
+  useEffect(() => {
+    // Update meta tags for UI/UX Design service page
+    document.title = 'UI/UX Design Services | User Interface & Experience Design | Bitlyt Tech Solutions';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Professional UI/UX design services including user interface design, user experience design, mobile app design, website design, and design systems. Expert team using Figma, Sketch, and Adobe XD for stunning designs. Get a free consultation today.');
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.name = 'keywords';
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'UI/UX design, user interface design, user experience design, mobile app design, website design, web design, app design, UI design, UX design, design systems, wireframing, prototyping, Figma design, Sketch design, Adobe XD design, interaction design, visual design, responsive design, design thinking, user research, usability testing');
+
+    // Add Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', 'UI/UX Design Services | User Interface & Experience Design');
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', 'Professional UI/UX design services including user interface design, user experience design, mobile app design, and website design.');
+
+    // Add Service Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "UI/UX Design Services",
+      "description": "Professional UI/UX design services including user interface design, user experience design, mobile app design, and website design.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bitlyt Tech Solutions",
+        "url": "https://www.bitlyttech.org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "UI/UX Design Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "User Interface Design",
+              "description": "Beautiful and intuitive interface designs for web and mobile applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "User Experience Design",
+              "description": "Research-driven UX design that improves user satisfaction and engagement."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile App Design",
+              "description": "Native and cross-platform mobile app design following platform guidelines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Design Systems",
+              "description": "Scalable design systems and component libraries for consistent branding."
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   const features = [
     {
       icon: (

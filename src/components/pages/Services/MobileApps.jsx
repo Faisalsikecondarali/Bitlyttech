@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaAws } from 'react-icons/fa';
 import {
   SiFirebase,
@@ -12,6 +12,107 @@ import {
 import './MobileApps.css';
 
 const MobileApps = ({ setCurrentPage, currentPage }) => {
+  useEffect(() => {
+    // Update meta tags for Mobile Apps service page
+    document.title = 'Mobile App Development Services | iOS & Android Apps | Bitlyt Tech Solutions';
+    
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', 'Professional mobile app development services for iOS and Android. Expert team using React Native, Flutter, Swift, and Kotlin for cross-platform and native mobile applications. Get a free consultation today.');
+
+    let metaKeywords = document.querySelector('meta[name="keywords"]');
+    if (!metaKeywords) {
+      metaKeywords = document.createElement('meta');
+      metaKeywords.name = 'keywords';
+      document.head.appendChild(metaKeywords);
+    }
+    metaKeywords.setAttribute('content', 'mobile app development, iOS app development, Android app development, React Native development, Flutter development, Swift development, Kotlin development, cross-platform mobile apps, native mobile apps, mobile app design, app development company, mobile application development, custom mobile apps, enterprise mobile apps, mobile app MVP, app development services');
+
+    // Add Open Graph tags
+    let ogTitle = document.querySelector('meta[property="og:title"]');
+    if (!ogTitle) {
+      ogTitle = document.createElement('meta');
+      ogTitle.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitle);
+    }
+    ogTitle.setAttribute('content', 'Mobile App Development Services | iOS & Android Apps');
+
+    let ogDesc = document.querySelector('meta[property="og:description"]');
+    if (!ogDesc) {
+      ogDesc = document.createElement('meta');
+      ogDesc.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDesc);
+    }
+    ogDesc.setAttribute('content', 'Professional mobile app development services for iOS and Android using React Native, Flutter, Swift, and Kotlin.');
+
+    // Add Service Schema
+    const schema = {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "name": "Mobile App Development Services",
+      "description": "Professional mobile app development services for iOS and Android using React Native, Flutter, Swift, and Kotlin.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Bitlyt Tech Solutions",
+        "url": "https://www.bitlyttech.org"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Pakistan"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mobile App Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "iOS App Development",
+              "description": "Native iOS applications built with Swift following Apple design guidelines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Android App Development",
+              "description": "Native Android applications built with Kotlin for optimal performance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cross-Platform Development",
+              "description": "Build once, deploy everywhere with React Native and Flutter for iOS and Android."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mobile App MVP",
+              "description": "Minimum viable product development to validate your app idea quickly."
+            }
+          }
+        ]
+      }
+    };
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   const features = [
     {
       icon: (
